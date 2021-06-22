@@ -143,7 +143,7 @@ def get_graphs():
         bar_chart(
             df.country.tolist(), df.iloc[:,8].tolist(), 
             '2015 population by country income category',
-            None, 'youth literacy rate %'
+            None, 'population'
             )
         )
 
