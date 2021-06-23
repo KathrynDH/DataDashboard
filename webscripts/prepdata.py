@@ -7,8 +7,8 @@ Created on Mon Jun 21 11:04:16 2021
 Load data and create graphs for webpage
 Function get_graphs called by myapp/routes.py
 """
-from getdata import read_data
-from plotlygraphs import line_graph, scatter_plot, bar_chart
+from webscripts.getdata import read_data
+from webscripts.plotlygraphs import line_graph, scatter_plot, bar_chart
 
 def get_graphs():
     """
