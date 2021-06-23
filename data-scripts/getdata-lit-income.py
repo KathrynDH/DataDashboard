@@ -49,6 +49,9 @@ for i in range(len(var)):
 df_wb = df[0]
 for k in range(1,len(df)):
     df_wb = df_wb.join(df[k].iloc[:,1:3], how='outer')
+    df_no_country = df_wb[df_wb['country'].isnull()]
+    for index, row in df_no_country.iterrows():
+        df_wb.at[index,'country']=df[k].at[index,'country']
     
 # Print info and save to csv
 print('Rows:{} Columns:{}\n'.format(df_wb.shape[0],df_wb.shape[1]))
