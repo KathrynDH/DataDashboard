@@ -206,5 +206,4 @@ def get_graphs():
         )
 
 
-    #return figures
-    return df2
+    return figures
