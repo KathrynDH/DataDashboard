@@ -1,7 +1,7 @@
 from myapp import app
 import json, plotly
 from flask import render_template
-from prepdata import get_graphs
+from webscripts.prepdata import get_graphs
 
 @app.route('/')
 @app.route('/index')
