@@ -64,6 +64,39 @@ def line_graph(x_list, df, name_col, y_cols, chart_title, x_label, y_label):
                 )
     return dict(data=graph, layout=graph_layout)
 
+def scatter_plot(x_vals, y_vals, names, chart_title, x_label, y_label):
+    """
+    Function to create plotly scatter plot
+
+    Args:
+        x_vals (list): graph x values
+        y_vals (list): graph y values
+        names (list of strings): title for each marker
+        chart_title (string): title for chart
+        x_label (string): label for x-axis
+        y_label (string): label for y-axis
+
+    Returns:
+        dictionary for plotly bar graph
+        
+    """
+    graph= [go.Scatter(
+            x = x_vals,
+            y = y_vals,
+            mode = 'markers',
+            text=names,
+            marker=dict(
+                color=y_vals, #set color equal to a variable
+                colorscale='Viridis' # plotly colorscale
+                )
+            )]
+
+    graph_layout = dict(title = chart_title,
+                xaxis = dict(title = x_label),
+                yaxis = dict(title = y_label),
+                )
+    return dict(data=graph, layout=graph_layout)
+
 def bar_chart(x_vals, y_vals, chart_title, x_label, y_label):
     """
     Function to create plotly bar graph
@@ -102,7 +135,7 @@ def get_graphs():
         list of plotly figures
         
     """
-    #files to load
+    #files to load for first four graphs: youth literacy and population data
     files = ['data/worldbanklit.csv','data/worldbankpop.csv']
     #duplicate columns in files
     drop_dup_col = 'country'
@@ -147,4 +180,31 @@ def get_graphs():
             )
         )
 
-    return figures
+    #file to load for graph: GNP and youth literacy
+    files = ['data/worldbank-lit-inc.csv', 'data/country-list.csv']
+    df2 = read_data(files, drop_dup_col,'inner').dropna()
+        
+    # figure-4
+    figures.append(
+        scatter_plot(
+            df2.iloc[:,1], df2.iloc[:,3], df2.iloc[:,0],
+            'Youth literacy rate and GNP USD',
+            'GNP', 'youth literacy rate %'
+            )
+        )
+    
+    #get GNP under 5k and youth literacy
+    df3 = df2[df2['gnp']<5000]
+        
+    # figure-5
+    figures.append(
+        scatter_plot(
+            df3.iloc[:,1], df3.iloc[:,3], df3.iloc[:,0],
+            'Youth literacy rate and GNP under 5,000 USD',
+            'GNP', 'youth literacy rate %'
+            )
+        )
+
+
+    #return figures
+    return df2
