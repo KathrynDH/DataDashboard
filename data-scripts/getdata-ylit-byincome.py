@@ -6,6 +6,9 @@ Created on Mon Jun 21 10:50:37 2021
 
 Get specified indicators for given years and countries from the World Bank API
 and save the dataframe as as CSV file
+
+Indicators: Youth literacy rate for income groups 
+            years: 2000, 2005, 2010, and 2015
 """
 
 import requests
