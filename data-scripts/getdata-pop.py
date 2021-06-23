@@ -6,6 +6,8 @@ Created on Sun Jun 20 17:07:05 2021
 
 Get specified indicators for given years and countries from the World Bank API
 and save the dataframe as as CSV file
+
+Indicators: Population for 2000, 2005, 2010, and 2015
 """
 
 import requests
