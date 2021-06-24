@@ -34,13 +34,13 @@ col_name.append('population')
 
 
 # Get a dataframe for each indicator for most recent year available (mrnev=1)
-for i in range(len(var)):
-    parameters = {
-        #'date':year[i],
+parameters = {
         'format':'json',
         'per_page':total_records,
         'mrnev':'1'
     }
+
+for i in range(len(var)):
     df1 = get_wb_data(var[i],parameters)
     df2 = clean_wb_df(df1, col_name[i], mrnev=True)
     df.append(df2)
