@@ -75,8 +75,8 @@ def get_graphs():
     figures.append(
         scatter_plot(
             df2.iloc[:,1], df2.iloc[:,3], df2.iloc[:,0],
-            'Youth literacy rate and GNP USD',
-            'GNP', 'youth literacy rate %'
+            'Youth literacy rate and GNI USD',
+            'GNI USD', 'youth literacy rate %'
             )
         )
     
@@ -87,8 +87,8 @@ def get_graphs():
     figures.append(
         scatter_plot(
             df3.iloc[:,1], df3.iloc[:,3], df3.iloc[:,0],
-            'Youth literacy rate and GNP under 5,000 USD',
-            'GNP', 'youth literacy rate %'
+            'Youth literacy rate and GNI under 5,000 USD',
+            'GNI', 'youth literacy rate %'
             )
         )
 
