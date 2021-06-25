@@ -7,7 +7,7 @@ Link: [Youth Literacy World Bank Data Dashboard](https://datadashboard-kh.heroku
 
 The website was written with Python using the Flask micro web framework.
 
-Data was retreived from the World Bank Data API and saved as csv files.
+Data was retrieved from the World Bank Data API and saved as csv files.
 The Python files for creating the csv files are in the data-scripts folder.
 They are not used by the website and were run prior to building the site.
 
