@@ -1,4 +1,5 @@
 .spy*
-__pycache__/prepdata.cpython-38.pyc
 test.py
-data-scripts/__pycache__/functions.cpython-38.pyc
+*/__pycache__/*
+__pycache__/*
+
