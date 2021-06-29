@@ -7,12 +7,13 @@ Created on Wed Jun 23 8:55:05 2021
 Get specified indicators for given years and countries from the World Bank API
 and save the dataframe as as CSV file
 
-Indicators: GNP and youth literacy rate for most recent year available
+Indicators: GNP, youth literacy rate, and population for most recent
+year available
 """
 
 from functions import get_wb_data, clean_wb_df
 
-        
+
 save_filename = '../data/worldbank-lit-inc.csv' #file name to save to
 total_records = '500' #maximum results to return from API call
 year = []
@@ -52,7 +53,7 @@ for k in range(1,len(df)):
     df_no_country = df_wb[df_wb['country'].isnull()]
     for index, row in df_no_country.iterrows():
         df_wb.at[index,'country']=df[k].at[index,'country']
-    
+
 # Print info and save to csv
 print('Rows:{} Columns:{}\n'.format(df_wb.shape[0],df_wb.shape[1]))
 print('First 5 rows:')
